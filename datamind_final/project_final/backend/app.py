@@ -7,7 +7,7 @@ app = FastAPI()
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Update with frontend URL in production
+    allow_origins=["datamindv1.netlify.app"],  # Update with frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
