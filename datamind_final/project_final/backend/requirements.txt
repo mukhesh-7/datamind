@@ -2,4 +2,12 @@ fastapi
 uvicorn
 python-dotenv
 requests
-# Add any other dependencies your app uses
+supabase
+PyPDF2
+docx
+pdfplumber
+pytesseract
+Pillow
+langchain
+huggingface
+dotenv
