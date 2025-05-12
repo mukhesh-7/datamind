@@ -7,17 +7,14 @@ router = APIRouter()
 
 @router.post("/")
 async def summarize(document_id: str = Form(...), model: str = Form(...)):
-    # Fetch document content from Supabase
     document = supabase.table("Documents").select("*").eq("id", document_id).execute().data[0]
     content = document["content"]
 
-    # Summarize using the selected model
     if model == "groq":
         summary = summarize_with_groq(content)
     else:
         summary = summarize_with_hf(content)
 
-    # Update summary in Analytics table
     analytics_entry = {
         "user_id": document["user_id"],
         "document_id": document_id,
@@ -30,7 +27,6 @@ async def summarize(document_id: str = Form(...), model: str = Form(...)):
 
 @router.get("/description/{document_id}")
 async def description(document_id: str):
-    # Fetch document content from Supabase
     document = supabase.table("Documents").select("*").eq("id", document_id).execute().data[0]
     content = document["content"]
     overview = get_document_description(content)
