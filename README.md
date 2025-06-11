@@ -55,7 +55,7 @@ Proper configuration is crucial for running DataMind, especially regarding API k
 *   **Frontend Configuration (`project_final/frontend/.env` or similar):**
     *   The frontend needs to know the address of the backend API. This is typically set via an environment variable like `VITE_API_BASE_URL`.
         ```
-        VITE_API_BASE_URL=http://localhost:10000 
+        VITE_API_BASE_URL=http://localhost:9000 
         ```
         For production, this should be the URL of your deployed backend.
     *   If the frontend directly interacts with services like Supabase for certain features (e.g., authentication UI), it might also require Supabase URL and anon key, typically prefixed with `VITE_` for Vite projects (e.g., `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
@@ -88,9 +88,6 @@ Proper configuration is crucial for running DataMind, especially regarding API k
             ```bash
             source venv/bin/activate
             ```
-    *   Install dependencies:
-        ```bash
-        pip install -r requirements.txt
         ```
     *   Set up environment variables:
         *   Create a `.env` file in the `project_final/backend` directory.
@@ -120,7 +117,7 @@ Proper configuration is crucial for running DataMind, especially regarding API k
         *   The frontend will need to know the URL of your running backend API. This is typically configured in the frontend code where API calls are made (e.g., in a config file or directly in service modules).
         *   You might need to create a `.env` file in `project_final/frontend` similar to how it's done for the backend, depending on how the frontend is configured to consume environment variables (e.g., using `VITE_API_BASE_URL`). For example:
             ```
-            VITE_API_BASE_URL=http://localhost:10000 
+            VITE_API_BASE_URL=http://localhost:9000 
             ```
             (Adjust the port if your backend runs on a different one).
 
@@ -135,9 +132,9 @@ Ensure you have completed the setup steps for both backend and frontend, includi
         *   macOS/Linux: `source venv/bin/activate`
     *   Start the FastAPI application using Uvicorn:
         ```bash
-        uvicorn app:app --host 0.0.0.0 --port 10000 --reload
+        uvicorn app:app --host 0.0.0.0 --port 9000 --reload
         ```
-        The `--reload` flag enables auto-reloading when code changes are detected. The backend will typically be available at `http://localhost:10000`.
+        The `--reload` flag enables auto-reloading when code changes are detected. The backend will typically be available at `http://localhost:9000`.
 
 2.  **Run the Frontend Development Server:**
     *   Navigate to the `project_final/frontend` directory.
@@ -149,8 +146,8 @@ Ensure you have completed the setup steps for both backend and frontend, includi
         ```bash
         yarn dev
         ```
-    *   The frontend application will typically be available at `http://localhost:5173` (Vite's default) or another port if specified in your Vite configuration. Check the terminal output when you run the command.
-    *   Ensure your frontend's API calls are configured to point to the backend URL (e.g., `http://localhost:10000`).
+    *   The frontend application will typically be available at `http://localhost:8000` (Vite's default) or another port if specified in your Vite configuration. Check the terminal output when you run the command.
+    *   Ensure your frontend's API calls are configured to point to the backend URL (e.g., `http://localhost:9000`).
 
 ## Building for Production
 
