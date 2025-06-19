@@ -10,6 +10,10 @@ async def summarize(document_id: str = Form(...), model: str = Form(...)):
     document = supabase.table("Documents").select("*").eq("id", document_id).execute().data[0]
     content = document["content"]
 
+    # Check for extraction errors or empty content
+    if not content or content.strip() == "" or content.startswith("Error: "):
+        return {"summary": "No summary available: Document contains no extractable text or extraction failed."}
+
     if model == "groq":
         summary = summarize_with_groq(content)
     else:
@@ -24,6 +28,7 @@ async def summarize(document_id: str = Form(...), model: str = Form(...)):
     }
     supabase.table("Analytics").insert(analytics_entry).execute()
     return {"summary": summary}
+
 
 @router.get("/description/{document_id}")
 async def description(document_id: str):

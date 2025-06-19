@@ -56,7 +56,7 @@ def get_document_description(content: str) -> str:
                     "Be concise and avoid details.\n\n" + chunk
                 )
                 payload = {
-                    "model": "gemma2-9b-it",
+                    "model": "llama-3.3-70b-versatile",
                     "messages": [
                         {"role": "system", "content": "You are a helpful assistant that generates document overviews (not summaries)."},
                         {"role": "user", "content": prompt}
@@ -85,7 +85,7 @@ def get_document_description(content: str) -> str:
                 "Be concise and avoid details.\n\n" + content
             )
             payload = {
-                "model": "llama3-8b-8192",
+                "model": "llama-3.3-70b-versatile",
                 "messages": [
                     {"role": "system", "content": "You are a helpful assistant that generates document overviews (not summaries)."},
                     {"role": "user", "content": prompt}

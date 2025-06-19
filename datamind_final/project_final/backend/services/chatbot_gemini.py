@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 import requests
-import random
 
 # Always load the .env from the backend root
 dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
