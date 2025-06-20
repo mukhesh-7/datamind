@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Core web framework
 fastapi
 uvicorn
@@ -25,4 +24,3 @@ uvicorn
 python-dotenv
 requests
 # Add any other dependencies your app uses
->>>>>>> a31b4ec7a899e62cdf8963f9d386bdbba973f21e
